@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Static navbar -->
+    <div class="navbar navbar-inverse navbar-static-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <h1 class="navbar-brand" href="index.html">
+            <%= link_to root_path do %>
+            <%= "タイトル" %>
+            <% end %></h1>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <%= link_to sessions_new_path do %>
+              <%= "ログイン" %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to abaut_new_path do %>
+              <%= "サイトについて" %>
+              <% end %>
+            </li>
+            <% if logged_in? %>
+            <li>
+              <%= link_to topics_new_path do %>
+              <%= "投稿" %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to logout_path, method: :delete do %>
+              <% 'ログアウト' %>
+              <% end %>
+            </li>
+              <% end %>
+
+
+          </ul>
+        </div>
+        <!--/.nav-collapse -->
+      </div>
+    </div>
+    <head>
+      <meta charset="utf-8">
+      <title>Stanley - Bootstrap Freelancer Template</title>
+      <meta content="width=device-width, initial-scale=1.0" name="viewport">
+      <meta content="" name="keywords">
+      <meta content="" name="description">
+
+      <!-- Favicons -->
+      <link href="img/favicon.png" rel="icon">
+      <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
+
+      <!-- Google Fonts -->
+      <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,700" rel="stylesheet">
+
+      <!-- Bootstrap CSS File -->
+      <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+      <!-- Libraries CSS Files -->
+      <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+      <!-- Main Stylesheet File -->
+      <link href="css/style.css" rel="stylesheet">
+
+      <!-- =======================================================
+        Template Name: Stanley
+        Template URL: https://templatemag.com/stanley-bootstrap-freelancer-template/
+        Author: TemplateMag.com
+        License: https://templatemag.com/license/
+      ======================================================= -->
+    </head>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% flash.each do |key, value| %>
+  <div class="alert alert-<%= key %>" role="alert"><%= value %></div>
+<% end %>
+
+    <%= yield %>
+    <script>
+  $(function(){
+    $(".alert").fadeOut(5000);
+  });
+</script>
+  </body>
+  <!-- +++++ Footer Section +++++ -->
+
+  <div id="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <h4>My Bunker</h4>
+          <p>
+            Some Address 987,<br/> +34 9054 5455, <br/> Madrid, Spain.
+          </p>
+        </div>
+        <!-- /col-lg-4 -->
+
+        <div class="col-lg-4">
+          <h4>My Links</h4>
+          <p>
+            <a href="#">Dribbble</a><br/>
+            <a href="#">Twitter</a><br/>
+            <a href="#">Facebook</a>
+          </p>
+        </div>
+        <!-- /col-lg-4 -->
+
+        <div class="col-lg-4">
+          <h4>About Stanley</h4>
+          <p>This cute theme was created to showcase your work in a simple way. Use it wisely.</p>
+        </div>
+        <!-- /col-lg-4 -->
+      </div>
+    </div>
+  </div>
+
+  <div id="copyrights">
+    <div class="container">
+      <p>
+        &copy; Copyrights <strong>Stanley</strong>. All Rights Reserved
+      </p>
+      <div class="credits">
+        <!--
+          You are NOT allowed to delete the credit link to TemplateMag with free version.
+          You can delete the credit link only if you bought the pro version.
+          Buy the pro version with working PHP/AJAX contact form: https://templatemag.com/stanley-bootstrap-freelancer-template/
+          Licensing information: https://templatemag.com/license/
+        -->
+        Created with Stanley template by <a href="https://templatemag.com/">TemplateMag</a>
+      </div>
+    </div>
+  </div>
+  <!-- / copyrights -->
+
+
+</html>

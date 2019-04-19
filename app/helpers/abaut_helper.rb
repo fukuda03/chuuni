@@ -1,0 +1,2 @@
+module AbautHelper
+end
