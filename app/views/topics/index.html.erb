@@ -11,10 +11,13 @@
             <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
               <%= image_tag 'heart-black.png', class: 'topic-index-icon' %>
             <% end %>
+            <%= topic.favorite_users.count %>
+
             <%= image_tag 'comment.png', class: 'topic-index-icon' %>
             <p class="topic-text">
               <%= topic.description %>
             </p>
+
           </div>
         </div>
       </div>

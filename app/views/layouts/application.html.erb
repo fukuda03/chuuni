@@ -27,6 +27,12 @@
               <%= "サイトについて" %>
               <% end %>
             </li>
+            <li>
+              <%= link_to topics_show_path do %>
+              <%= "ランキング" %>
+              <% end %>
+            </li>
+
             <% if logged_in? %>
             <li>
               <%= link_to topics_new_path do %>
@@ -38,6 +44,18 @@
               <% 'ログアウト' %>
               <% end %>
             </li>
+            <li>
+              <%= link_to mypages_index_path do %>
+              <%= "マイページ" %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to topics_path do %>
+              <%= "投稿一覧" %>
+              <% end %>
+            </li>
+
+
               <% end %>
 
 

@@ -1,6 +1,6 @@
 class TopicsController < ApplicationController
   def index
-    @topics = Topic.all.includes(:favorite_users)
+    @topics = Topic.all
   end
 
   def new
@@ -18,6 +18,11 @@ class TopicsController < ApplicationController
   end
 end
 
+
+   def show
+     @topics = Topic.find(Favorite.group(:topic_id).order('count(topic_id) desc').limit(3).pluck(:topic_id))
+     #code
+   end
 private
  def topic_params
    params.require(:topic).permit(:image, :description)
