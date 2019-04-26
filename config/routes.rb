@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'contact/new'
+  get 'news/new'
   get 'mypages/index'
   get 'about/new'
   get 'topics/new'
