@@ -2,13 +2,14 @@ Rails.application.routes.draw do
   get 'comments/new'
   get 'contact/new'
   get 'news/new'
-  get 'mypages/index'
   get 'about/new'
   get 'topics/new'
   get 'sessions/new'
   get 'users/new'
   get 'top/new'
   get 'topics/show'
+  get 'users/show'
+  get 'users/edit'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "top#new"
 
