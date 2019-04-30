@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   get 'topics/show'
   get 'users/show'
   get 'users/edit'
+  get '/post/hashtag/:name', to: 'topics#hashtag'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root "top#new"
 

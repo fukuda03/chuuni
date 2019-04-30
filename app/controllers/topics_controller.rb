@@ -23,6 +23,13 @@ end
      @topics = Topic.find(Favorite.group(:topic_id).order('count(topic_id) desc').limit(3).pluck(:topic_id))
      #code
    end
+
+   def hashtag
+     @user = current_user
+     @tag = Hashtag.find_by(hashname: params[:name])
+     @topics = @tag.topics.build
+     #code
+   end
 private
  def topic_params
    params.require(:topic).permit(:image, :description)
