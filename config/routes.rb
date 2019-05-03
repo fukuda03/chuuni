@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'randomtitles/show'
+  get 'randomtitles/new'
   get 'comments/new'
   get 'contact/new'
   get 'news/new'
@@ -17,6 +19,7 @@ Rails.application.routes.draw do
   resources :users
   resources :topics
   resources :comments
+  resources :randomtitles
 
   get 'favorites/index'
   post '/favorites', to: 'favorites#create'

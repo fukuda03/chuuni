@@ -32,6 +32,12 @@
               <%= "ランキング" %>
               <% end %>
             </li>
+            <li>
+              <%= link_to randomtitles_new_path do %>
+              <%= "お題" %>
+              <% end %>
+            </li>
+
 
             <% if logged_in? %>
             <li>
@@ -47,6 +53,11 @@
             <li>
               <%= link_to topics_path do %>
               <%= "投稿一覧" %>
+              <% end %>
+            </li>
+            <li>
+              <%= link_to users_show_path do %>
+              <%= "マイページ" %>
               <% end %>
             </li>
 

@@ -10,6 +10,8 @@ class TopicsController < ApplicationController
   def create
     @topic = current_user.topics.new(topic_params)
 
+
+
     if @topic.save
       redirect_to topics_path, success: '投稿に成功しました'
     else
@@ -26,9 +28,8 @@ end
 
    def hashtag
      @user = current_user
-     @tag = Hashtag.find_by(hashname: params[:name])
-     @topics = @tag.topics.build
-     #code
+     hash_name = params[:name]
+     @topics = Topic.where('description LIKE ?', "%##{hash_name}%")
    end
 private
  def topic_params
