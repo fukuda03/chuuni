@@ -12,7 +12,7 @@
           </button>
           <h1 class="navbar-brand" href="index.html">
             <%= link_to root_path do %>
-            <%= "タイトル" %>
+            <%= "世界に向けて臨戦態勢" %>
             <% end %></h1>
         </div>
         <div class="navbar-collapse collapse">
@@ -23,6 +23,12 @@
               <% end %>
             </li>
             <li>
+              <%= link_to users_new_path do %>
+              <%= "会員登録" %>
+              <% end %>
+            </li>
+
+            <li>
               <%= link_to about_new_path do %>
               <%= "サイトについて" %>
               <% end %>
@@ -32,14 +38,14 @@
               <%= "ランキング" %>
               <% end %>
             </li>
+
+            <% if logged_in? %>
             <li>
               <%= link_to randomtitles_new_path do %>
               <%= "お題" %>
               <% end %>
             </li>
 
-
-            <% if logged_in? %>
             <li>
               <%= link_to topics_new_path do %>
               <%= "投稿" %>
@@ -48,11 +54,6 @@
             <li>
               <%= link_to logout_path, method: :delete do %>
               <% 'ログアウト' %>
-              <% end %>
-            </li>
-            <li>
-              <%= link_to topics_path do %>
-              <%= "投稿一覧" %>
               <% end %>
             </li>
             <li>

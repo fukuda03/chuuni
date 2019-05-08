@@ -1,83 +1,65 @@
-  <!-- +++++ Welcome Section +++++ -->
-  <div id="ww">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 centered">
-          <h1>タイトル</h1>
+<!-- +++++ Welcome Section +++++ -->
+<div id="ww">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 centered">
+        <h1>世界に向けて臨戦態勢</h1>
 
-        </div>
-        <!-- /col-lg-8 -->
       </div>
-      <!-- /row -->
+      <!-- /col-lg-8 -->
     </div>
-    <!-- /container -->
+    <!-- /row -->
   </div>
-  <!-- /ww -->
-
-  <div class="topic-index-single">
+  <!-- /container -->
+</div>
+<!-- /ww -->
+<div class="container">
   <div class="row">
-    <div class="col-sm-2 col-sm-offset-1">
-        <p><%= link_to 'Sign up', users_new_path, class: 'btn btn-white ' %></p>
-        <p><%= link_to 'Ranking', topics_show_path,class: 'btn btn-white ' %></p>
-        <p><%= link_to 'About', about_new_path,class: 'btn btn-white' %></p>
-        <p><%= link_to 'News', news_new_path,class: 'btn btn-white' %></p>
-        <p><%= link_to 'Contct', contact_new_path,class: 'btn btn-white' %></p>
-        <p><%= link_to 'edit', users_edit_path,class: 'btn btn-white' %></p>
-        <p><%= link_to 'show', users_show_path,class: 'btn btn-white' %></p>
+    <div class="col-md-8 col-md-offset-2">
+      <h2>今日のお題</h2>
 
-        <!--1カラム目-->
     </div>
 
-    <div class="col-sm-5">
-      <div class="topic-text">
+  </div>
 
-      <%= @topics.each do |topic| %>
-        <h2 class="topic-author">
-          <%= topic.user.name %>
-        </h2>
-        <%= image_tag topic.image.url %>
-        <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
-        <%= image_tag 'heart-black.png', class: 'topic-index-icon' %>
-        <% end %>
-        <%= topic.favorite_users.count %>
-        <%= link_to comments_new_path(topic_id: topic.id),method: :get do %>
-        <%= image_tag 'comment.png', class: 'topic-index-icon' %>
-        <% end %>
-        <p class="topic-text">
-          <%= topic.description %>
-        </p>
-        <h4 class="topic-text">コメント</h4>
-      <% topic.comments.each do |comment| %>
-      <p class="topic-text"><%= comment.description %></p>
+</div>
 
-      <% end %>
-      <% end %>
-     </div>
-        <!--2カラム目-->
-    </div>
-    <div class="col-sm-3 ">
-      <div class="users-new-wrapper ">
-            <div class="users-new-container">
-              <h1 class="text-white">Log in</h1>
-              <%= form_for :session, url: login_path do |f| %>
-                <div class="form-group">
-                  <%= f.label :email, class: "text-white" %>
-                  <%= f.text_field :email, class: "form-control" %>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 col-sm-offset-1">
+      <div class="topic-index-wrapper">
+          <% @topics.each do |topic| %>
+                <div class="topic-index-single">
+                  <h2 class="topic-author">
+                    <%= topic.user.name %>
+                  </h2>
+                  <%= image_tag topic.image.url %>
+                  <%= link_to favorites_path(topic_id: topic.id), method: :post do %>
+                    <%= image_tag 'heart-black.png', class: 'topic-index-icon' %>
+                  <% end %>
+                  <%= topic.favorite_users.count %>
+
+                  <%= link_to comments_new_path(topic_id: topic.id),method: :get do %>
+                  <%= image_tag 'comment.png', class: 'topic-index-icon' %>
+                  <% end %>
+
+                  <p class="topic-text"> 説明</p>
+                  <p class="topic-text">
+                    <%= render_with_hashtags(topic.description) %>
+                  </p>
+                  <h4 class="topic-text">コメント</h4>
+                <% topic.comments.each do |comment| %>
+                <p class="topic-text"><%= comment.description %></p>]
+                <% end %>
+
                 </div>
-                <div class="form-group ">
-                  <%= f.label :password, class: "text-white" %>
-                  <%= f.password_field :password, class: "form-control" %>
-                </div>
-
-                <%= f.submit "ログイン", class: "btn-block btn-white" %>
-              <% end %>
-            </div>
+          <% end %>
       </div>
-
     </div>
   </div>
-  </div>
+</div>
 
 
 
-  <!-- +++++ Projects Section +++++ -->
+
+<!-- +++++ Projects Section +++++ -->
